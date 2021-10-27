@@ -1,19 +1,15 @@
 import styled from "styled-components";
-import { flex } from "../../utility/utilityStyles";
+import { bgDark, flex } from "../../utility/styles/utility";
 
 const Container = styled.div`
   ${flex}
+  border: --clr-red solid 3px;
+  ${bgDark}
+  /* border: red solid 3px; */
 `;
 
 function App() {
-  return (
-    <div>
-      <div>a</div>
-      <div>b</div>
-      <div>c</div>
-      <div>d</div>
-    </div>
-  );
+  return <Container>h1</Container>;
 }
 
 export default App;

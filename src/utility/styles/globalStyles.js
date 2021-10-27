@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import { ffSansNormalStyle, fs400Style } from "./typography";
+import { colorDark, colorWhite } from "./variables";
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -20,7 +22,22 @@ figure,
 picture {
   margin: 0;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+p {
+  font-weight: 400;
+}
+
 body {
+  ${ffSansNormalStyle}
+  ${fs400Style}
+  color: hsl(${colorWhite});
+  background-color: hsl(${colorDark});
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -46,5 +63,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
+:root {
+  --clr-red : red
+}
 `;
