@@ -1,15 +1,13 @@
-import styled from "styled-components";
-import { bgDark, flex } from "../../utility/styles/utility";
-
-const Container = styled.div`
-  ${flex}
-  border: --clr-red solid 3px;
-  ${bgDark}
-  /* border: red solid 3px; */
-`;
+import { Header } from "../Header";
+import { Home } from "../Home";
 
 function App() {
-  return <Container>h1</Container>;
+  return (
+    <>
+      <Header />
+      <Home />
+    </>
+  );
 }
 
 export default App;

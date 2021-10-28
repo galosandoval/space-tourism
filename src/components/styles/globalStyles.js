@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
+:root {
+  --clr-dark: red;
+}
+
 /* https://piccalil.li/blog/a-modern-css-reset */
 
 body,
@@ -21,6 +25,8 @@ p,
 figure,
 picture {
   margin: 0;
+
+
 }
 
 h1,
@@ -40,6 +46,9 @@ body {
   background-color: hsl(${colorDark});
   line-height: 1.5;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 img,
 picture {
@@ -63,7 +72,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
-:root {
-  --clr-red : red
+body {
+ border: 1px solid var(--clr-dark)
 }
 `;
