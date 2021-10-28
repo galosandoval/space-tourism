@@ -2,7 +2,7 @@ import { css } from "styled-components";
 import { colorDark, colorLight, colorWhite } from "./variables";
 
 /**
- * Utility Classes
+ * General
  */
 export const gap = css`
   gap: ${(p) => (p.gap ? `${p.gap}rem` : "1rem")};
@@ -20,6 +20,25 @@ export const container = css`
   margin-inline: auto;
   max-width: 80rem;
 `;
+export const gridContainer = css`
+  display: grid;
+
+  @media (min-width: 45rem) {
+    & {
+      column-gap: 2rem;
+      grid-template-columns: minmax(2em, 1fr) minmax(0, 30rem) minmax(0, 30rem) minmax(2em, 1fr);
+      /* grid-template-columns: 2em repeat(2, minmax(0, 40rem)) 2em; same as  ^^*/
+    }
+    & > *:first-child {
+      grid-column: 2;
+      outline: 1px solid red;
+    }
+    & > *:last-child {
+      grid-column: 3;
+      outline: 1px solid yellow;
+    }
+  }
+`;
 export const srOnly = css`
   position: absolute;
   width: 1px;
@@ -30,6 +49,17 @@ export const srOnly = css`
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+`;
+
+export const flowSpace = css`
+  margin-top: ${(p) => (p.space ? `${p.space}rem` : "1rem")};
+`;
+
+export const flow = css`
+  & > *:where(:not(:first-child)) {
+    ${flowSpace}
+    outline: 1px solid red;
+  }
 `;
 
 /**
