@@ -1,6 +1,5 @@
 import React from "react";
-import { LargeButton } from "../styles/components";
-import { HomeDiv } from "./Home.styles";
+import { HomeButton, HomeDiv } from "./Home.styles";
 
 export const Home = () => {
   return (
@@ -16,8 +15,8 @@ export const Home = () => {
           truly out of this world experience!
         </p>
       </div>
-      <div>
-        <LargeButton href="#">Explore</LargeButton>
+      <div style={{ border: "2px solid blue" }}>
+        <HomeButton href="#">Explore</HomeButton>
       </div>
     </HomeDiv>
   );

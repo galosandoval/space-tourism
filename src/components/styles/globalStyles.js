@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { bgImage } from "./pages";
 import { ffSansNormalStyle, fs400Style } from "./typography";
 import { colorDark, colorWhite } from "./variables";
 
@@ -7,10 +8,6 @@ export const GlobalStyle = createGlobalStyle`
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-:root {
-  --clr-dark: red;
 }
 
 /* https://piccalil.li/blog/a-modern-css-reset */
@@ -25,8 +22,6 @@ p,
 figure,
 picture {
   margin: 0;
-
-
 }
 
 h1,
@@ -49,6 +44,12 @@ body {
 
   display: grid;
   grid-template-rows: min-content 1fr;
+
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: bottom center;
+
+  ${bgImage}
 }
 img,
 picture {
@@ -71,8 +72,5 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-body {
- border: 1px solid var(--clr-dark)
 }
 `;
