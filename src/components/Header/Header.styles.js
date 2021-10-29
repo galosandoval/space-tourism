@@ -11,6 +11,10 @@ export const HeaderNav = styled.nav`
   .show-menu {
     transform: translateX(0);
   }
+  .active {
+    border-bottom: 0.2rem solid hsl(${colorWhite} / 1);
+    padding: 0 0 2rem;
+  }
   ul {
     ${flex}
     ${underlineIndicators}
@@ -21,6 +25,11 @@ export const HeaderNav = styled.nav`
     ${uppercase}
     ${textWhite}
     ${letterSpacing2}
+  }
+  @media (max-width: 35rem) {
+    .active {
+      border: 0;
+    }
   }
 `;
 

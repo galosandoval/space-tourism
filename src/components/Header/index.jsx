@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { HeaderNav, MobileNavToggle, PrimaryHeader } from "./Header.styles";
 import logo from "../../assets/shared/logo.svg";
 import { Logo } from "../styles/components";
+import { NavLink } from "react-router-dom";
 
 const initialMobileMenuState = {
   isOpen: false,
   class: ""
 };
 
-export const Header = () => {
+export const Header = ({ routes }) => {
   const [mobileMenu, setMobileMenu] = useState(initialMobileMenuState);
 
   const handleClick = () => {
@@ -27,26 +28,14 @@ export const Header = () => {
       </MobileNavToggle>
       <HeaderNav gap={"clamp(1.5rem, 5vw, 3.5rem)"}>
         <ul id="primary-navigation" className={mobileMenu.class}>
-          <li className="active">
-            <a href="index.html">
-              <span aria-hidden="true">00</span>Home
-            </a>
-          </li>
-          <li>
-            <a href="destination.html">
-              <span aria-hidden="true">01</span>Destination
-            </a>
-          </li>
-          <li>
-            <a href="crew.html">
-              <span aria-hidden="true">02</span>Crew
-            </a>
-          </li>
-          <li>
-            <a href="technology.html">
-              <span aria-hidden="true">03</span>Technology
-            </a>
-          </li>
+          {routes.map((route, index) => (
+            <li key={route.path}>
+              <NavLink to={route.path} exact activeClassName="active">
+                <span aria-hidden="true">0{index}</span>
+                {route.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </HeaderNav>
     </PrimaryHeader>
