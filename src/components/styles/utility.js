@@ -29,8 +29,6 @@ export const GridContainer = styled.div`
   place-items: center;
   padding-inline: 1rem;
 
-  border: 5px solid limegreen;
-
   & * {
     max-width: 50ch;
   }
@@ -44,11 +42,9 @@ export const GridContainer = styled.div`
     }
     & > *:first-child {
       grid-column: 2;
-      outline: 1px solid red;
     }
     & > *:last-child {
       grid-column: 3;
-      outline: 1px solid yellow;
     }
   }
 `;

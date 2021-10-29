@@ -99,11 +99,16 @@ export const PrimaryNavigation = css`
       border: 0;
     }
   }
-  @media (min-width: 35em) and (max-width: 45em) {
-    padding-inline: 3rem;
+  @media (min-width: 35em) {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+  @media (min-width: 35em) and (max-width: 44.999em) {
     a > span {
       display: none;
     }
+  }
+  @media (min-width: 45em) {
+    margin-block: 2rem;
   }
 `;
 

@@ -3,7 +3,7 @@ import { HomeButton, HomeDiv } from "./Home.styles";
 
 export const Home = () => {
   return (
-    <HomeDiv>
+    <HomeDiv as="main" id="main">
       <div>
         <h1>
           So, you want to travel to
@@ -15,7 +15,7 @@ export const Home = () => {
           truly out of this world experience!
         </p>
       </div>
-      <div style={{ border: "2px solid blue" }}>
+      <div>
         <HomeButton href="#">Explore</HomeButton>
       </div>
     </HomeDiv>

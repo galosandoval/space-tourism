@@ -29,22 +29,22 @@ export const Header = () => {
         <ul id="primary-navigation" className={mobileMenu.class}>
           <li className="active">
             <a href="index.html">
-              <span>00</span>Home
+              <span aria-hidden="true">00</span>Home
             </a>
           </li>
           <li>
             <a href="destination.html">
-              <span>01</span>Destination
+              <span aria-hidden="true">01</span>Destination
             </a>
           </li>
           <li>
             <a href="crew.html">
-              <span>02</span>Crew
+              <span aria-hidden="true">02</span>Crew
             </a>
           </li>
           <li>
             <a href="technology.html">
-              <span>03</span>Technology
+              <span aria-hidden="true">03</span>Technology
             </a>
           </li>
         </ul>
