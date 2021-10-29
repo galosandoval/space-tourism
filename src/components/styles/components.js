@@ -1,14 +1,10 @@
 import styled, { css } from "styled-components";
-import { ffSerifStyle, fs600Style, letterSpacing2, uppercase } from "./typography";
-import { flex, textDark, textWhite } from "./utility";
+import { ffSerifStyle, fs600Style } from "./typography";
+import { flex, gap } from "./utility";
 import { colorDark, colorLight, colorWhite } from "./variables";
 
 export const LargeButton = styled.a`
-  ${uppercase}
-  ${ffSerifStyle}
-  ${fs600Style}
-  ${textDark}
-  
+  font-size: 2rem;
   position: relative;
   z-index: 1;
   display: inline-grid;
@@ -17,7 +13,6 @@ export const LargeButton = styled.a`
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
-  background-color: hsl(${colorWhite});
 
   &::after {
     content: "";
@@ -41,38 +36,74 @@ export const underlineIndicators = css`
   // all direct descendents with *
   & > * {
     cursor: pointer;
-    padding: ${(p) => (p.uGap ? `${p.uGap}rem 0` : "1rem 0")};
+    padding: var(--underline-gap, 1rem) 0;
     border: 0;
     border-bottom: 0.2rem solid hsl(${colorWhite} / 0);
     transition: 0.3s all;
   }
-  & > *:hover,
   & > *:focus {
     border-color: hsl(${colorWhite} / 0.5);
   }
-  & > .active,
-  & > [aria-selected="true"] {
-    color: hsl(${colorWhite} / 1);
-    border-color: hsl(${colorWhite} / 1);
+  @media (hover: hover) {
+    & > *:hover {
+      border-color: hsl(${colorWhite} / 0.5);
+    }
+  }
+  @media (min-width: 35rem) {
+    & > .active,
+    & > [aria-selected="true"] {
+      color: hsl(${colorWhite} / 1);
+      border-color: hsl(${colorWhite} / 1);
+    }
   }
 `;
 
+/**
+ * Primary Nav
+ */
+
+export const Logo = styled.img`
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+`;
+
 export const PrimaryNavigation = css`
-  gap: 8rem;
+  ${gap}
+  --underline-gap: 2rem;
   list-style: none;
-  padding: 0;
   margin: 0;
-  /* ${underlineIndicators} */
+  padding: 0;
+  background: hsl(${colorWhite} / 0.05);
+  backdrop-filter: blur(1.5rem);
 
   a {
     text-decoration: none;
-    /* ${uppercase}
-    ${textWhite}
-    ${letterSpacing2} */
   }
   a > span {
     font-weight: 700;
     margin-right: 0.5em;
+  }
+
+  @media (max-width: 35rem) {
+    --underline-gap: 0.5rem;
+    position: fixed;
+    z-index: 1000;
+    // new property top, right, bottom, left
+    inset: 0 0 0 20%;
+    padding: min(20rem, 15vh) 2rem;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+    & > .active {
+      border: 0;
+    }
+  }
+  @media (min-width: 35em) and (max-width: 45em) {
+    padding-inline: 3rem;
+    a > span {
+      display: none;
+    }
   }
 `;
 

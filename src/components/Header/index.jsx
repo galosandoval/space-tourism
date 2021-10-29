@@ -1,15 +1,32 @@
-import React from "react";
-import { HeaderNav, PrimaryHeader } from "./Header.styles";
+import React, { useState } from "react";
+import { HeaderNav, MobileNavToggle, PrimaryHeader } from "./Header.styles";
 import logo from "../../assets/shared/logo.svg";
+import { Logo } from "../styles/components";
+
+const initialMobileMenuState = {
+  isOpen: false,
+  class: ""
+};
 
 export const Header = () => {
+  const [mobileMenu, setMobileMenu] = useState(initialMobileMenuState);
+
+  const handleClick = () => {
+    mobileMenu.isOpen
+      ? setMobileMenu((state) => ({ isOpen: !state.isOpen, class: "" }))
+      : setMobileMenu((state) => ({ isOpen: !state.isOpen, class: "show-menu" }));
+  };
+
   return (
     <PrimaryHeader>
       <div>
-        <img src={logo} alt="space tourism logo" />
+        <Logo src={logo} alt="space tourism logo" />
       </div>
-      <HeaderNav uGap={2}>
-        <ul>
+      <MobileNavToggle onClick={handleClick} active={mobileMenu.isOpen}>
+        <span aria-expanded={mobileMenu.isOpen}>Menu</span>
+      </MobileNavToggle>
+      <HeaderNav gap={"clamp(1.5rem, 5vw, 3.5rem)"}>
+        <ul id="primary-navigation" className={mobileMenu.class}>
           <li className="active">
             <a href="index.html">
               <span>00</span>Home

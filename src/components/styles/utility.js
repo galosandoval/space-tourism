@@ -1,11 +1,11 @@
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 import { colorDark, colorLight, colorWhite } from "./variables";
 
 /**
  * General
  */
 export const gap = css`
-  gap: ${(p) => (p.gap ? `${p.gap}rem` : "1rem")};
+  gap: ${(p) => (p.gap ? `${p.gap}` : "1rem")};
 `;
 export const flex = css`
   display: flex;
@@ -15,16 +15,29 @@ export const grid = css`
   display: grid;
   ${gap}
 `;
+export const block = css`
+  display: block;
+`;
 export const container = css`
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
 `;
-export const gridContainer = css`
+export const GridContainer = styled.div`
+  text-align: center;
   display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+
+  border: 5px solid limegreen;
+
+  & * {
+    max-width: 50ch;
+  }
 
   @media (min-width: 45rem) {
     & {
+      text-align: left;
       column-gap: 2rem;
       grid-template-columns: minmax(2em, 1fr) minmax(0, 30rem) minmax(0, 30rem) minmax(2em, 1fr);
       /* grid-template-columns: 2em repeat(2, minmax(0, 40rem)) 2em; same as  ^^*/
@@ -58,7 +71,6 @@ export const flowSpace = css`
 export const flow = css`
   & > *:where(:not(:first-child)) {
     ${flowSpace}
-    outline: 1px solid red;
   }
 `;
 

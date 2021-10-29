@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import { PrimaryNavigation, underlineIndicators } from "../styles/components";
 import { ffSansCondStyle, letterSpacing2, uppercase } from "../styles/typography";
-import { flex, textWhite } from "../styles/utility";
+import { flex, srOnly, textWhite } from "../styles/utility";
+
+import hamburgerIcon from "../../assets/shared/icon-hamburger.svg";
+import closeIcon from "../../assets/shared/icon-close.svg";
 
 export const HeaderNav = styled.nav`
+  .show-menu {
+    transform: translateX(0);
+  }
   ul {
     ${flex}
     ${underlineIndicators}
@@ -19,4 +25,38 @@ export const HeaderNav = styled.nav`
 
 export const PrimaryHeader = styled.header`
   ${flex}
+  justify-content: space-between;
+  align-items: center;
+  button > span {
+    ${srOnly}
+  }
+
+`;
+
+export const MobileNavToggle = styled.button.attrs(() => ({
+  "aria-controls": "primary-navigation"
+}))`
+  display: none;
+
+  @media (max-width: 35rem) {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    border: 0;
+    background-image: url(${hamburgerIcon});
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1.5rem;
+    aspect-ratio: 1;
+
+    ${(p) => p.active && ` background-image: url(${closeIcon});`}
+
+    &:focus-visible {
+      outline-offset: 5px;
+      outline: 5px solid white;
+    }
+  }
 `;
