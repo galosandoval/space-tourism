@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { LargeButton } from "../styles/components";
 import {
   ffSansCondStyle,
@@ -12,7 +12,9 @@ import { bgWhite, block, textAccent, textDark, textWhite } from "../styles/utili
 import { GridContainer } from "../styles/layout";
 
 export const HomeDiv = styled(GridContainer)`
-  height: 86vh;
+  & > div {
+    margin: 2rem 0;
+  }
 
   h1 {
     ${textAccent}
@@ -30,6 +32,13 @@ export const HomeDiv = styled(GridContainer)`
   @media (min-width: 45em) {
     padding-bottom: max(6rem, 20vh);
     align-items: end;
+
+    & > *:first-child {
+      grid-column: 2;
+    }
+    & > *:last-child {
+      grid-column: 3;
+    } 
   }
 `;
 

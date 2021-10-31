@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "styled-components/macro";
 import { colorWhite, ffSansCond, ffSansNormal, ffSerif } from "./variables";
 
 export const ffSerifStyle = css`

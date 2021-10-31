@@ -2,6 +2,11 @@
   "name": "space-travel",
   "version": "0.1.0",
   "private": true,
+  "babel": {
+    "plugins": [
+      "babel-plugin-styled-components"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -36,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.3",
+    "styled-components.macro": "^1.0.0"
   }
 }

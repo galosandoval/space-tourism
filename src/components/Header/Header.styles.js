@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { PrimaryNavigation, underlineIndicators } from "../styles/components";
 import { ffSansCondStyle, letterSpacing2, uppercase } from "../styles/typography";
 import { flex, srOnly, textWhite } from "../styles/utility";

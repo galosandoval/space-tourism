@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const GridContainer = styled.div`
   text-align: center;
@@ -17,11 +17,6 @@ export const GridContainer = styled.div`
       grid-template-columns: minmax(2em, 1fr) minmax(0, 30rem) minmax(0, 30rem) minmax(2em, 1fr);
       /* grid-template-columns: 2em repeat(2, minmax(0, 40rem)) 2em; same as  ^^*/
     }
-    & > *:first-child {
-      grid-column: 2;
-    }
-    & > *:last-child {
-      grid-column: 3;
-    }
+
   }
 `;

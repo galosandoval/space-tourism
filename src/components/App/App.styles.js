@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { colorWhite } from "../styles/variables";
 
 export const SkipToContent = styled.a`
