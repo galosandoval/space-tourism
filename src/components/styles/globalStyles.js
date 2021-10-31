@@ -49,7 +49,7 @@ body {
   background-size: cover;
   background-position: bottom center;
 
-  ${bgImage}
+  /* ${bgImage} */
 }
 img,
 picture {

@@ -23,7 +23,7 @@ function App() {
       {routes.map(({ path, Component }) => (
         <Route key={path} exact path={path}>
           {({ match }) => (
-            <CSSTransition in={match != null} timeout={1000} classNames="fade" unmountOnExit>
+            <CSSTransition in={match != null} timeout={2000} classNames="fade" unmountOnExit>
               <Component />
             </CSSTransition>
           )}

@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, {  useLayoutEffect, useState } from "react";
 import { HeaderNav, MobileNavToggle, PrimaryHeader } from "./Header.styles";
 import logo from "../../assets/shared/logo.svg";
 import { Logo } from "../styles/components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import homeMobile from "../../assets/home/background-home-mobile.jpg";
+import homeTablet from "../../assets/home/background-home-tablet.jpg";
+import homeDesktop from "../../assets/home/background-home-desktop.jpg";
+import desMobile from "../../assets/destination/background-destination-mobile.jpg";
+import desTablet from "../../assets/destination/background-destination-tablet.jpg";
+import desDesktop from "../../assets/destination/background-destination-desktop.jpg";
 
 const initialMobileMenuState = {
   isOpen: false,
@@ -12,11 +18,48 @@ const initialMobileMenuState = {
 export const Header = ({ routes }) => {
   const [mobileMenu, setMobileMenu] = useState(initialMobileMenuState);
 
+  const location = useLocation();
+  console.log(location);
+
   const handleClick = () => {
     mobileMenu.isOpen
       ? setMobileMenu((state) => ({ isOpen: !state.isOpen, class: "" }))
       : setMobileMenu((state) => ({ isOpen: !state.isOpen, class: "show-menu" }));
   };
+
+  // useEffect(() => {
+  //   if (location.pathname === "/destination") {
+  //     document.body.style.backgroundImage = "none";
+  //   }
+  // }, [location]);
+
+  useLayoutEffect(() => {
+    const width = window.innerWidth;
+    if (location.pathname === "/") {
+      if (width < 560) {
+        document.body.style.backgroundImage = `url(${homeMobile})`;
+      } else if (width < 720) {
+        document.body.style.backgroundImage = `url(${homeTablet})`;
+      } else {
+        document.body.style.backgroundImage = `url(${homeDesktop})`;
+      }
+    } else if (location.pathname === "/technology") {
+    } else if (location.pathname === "/crew") {
+    } else if (location.pathname === "/destination") {
+      if (width < 560) {
+        document.body.style.backgroundImage = `url(${desMobile})`;
+      } else if (width < 720) {
+        document.body.style.backgroundImage = `url(${desTablet})`;
+      } else {
+        document.body.style.backgroundImage = `url(${desDesktop})`;
+      }
+    }
+    // || document.documentElement.clientWidth || document.body.clientWidth;
+    const height = window.innerHeight;
+    // || document.documentElement.clientHeight || document.body.clientHeight;
+
+    console.log(width, height);
+  }, [location]);
 
   return (
     <PrimaryHeader>
@@ -27,7 +70,7 @@ export const Header = ({ routes }) => {
         <span aria-expanded={mobileMenu.isOpen}>Menu</span>
       </MobileNavToggle>
       <HeaderNav gap={"clamp(1.5rem, 5vw, 3.5rem)"}>
-        <ul id="primary-navigation" className={mobileMenu.class}>
+        <ul id="primary-navigation" className={mobileMenu.class} >
           {routes.map((route, index) => (
             <li key={route.path}>
               <NavLink to={route.path} exact activeClassName="active">
