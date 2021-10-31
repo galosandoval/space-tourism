@@ -12,6 +12,7 @@ import { bgWhite, block, GridContainer, textAccent, textDark, textWhite } from "
 
 export const HomeDiv = styled(GridContainer)`
   height: 86vh;
+
   h1 {
     ${textAccent}
     ${fs500Style}

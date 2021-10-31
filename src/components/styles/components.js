@@ -50,11 +50,11 @@ export const underlineIndicators = css`
     }
   }
   @media (min-width: 35rem) {
-    & > .active,
-    & > [aria-selected="true"] {
+    /* & > .active, */
+    /* & > [aria-selected="true"] {
       color: hsl(${colorWhite} / 1);
       border-color: hsl(${colorWhite} / 1);
-    }
+    } */
   }
 `;
 
@@ -95,15 +95,18 @@ export const PrimaryNavigation = css`
     margin: 0;
     transform: translateX(100%);
     transition: transform 500ms ease-in-out;
-    & > .active {
-      border: 0;
-    }
+
   }
-  @media (min-width: 35em) and (max-width: 45em) {
-    padding-inline: 3rem;
+  @media (min-width: 35em) {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+  @media (min-width: 35em) and (max-width: 44.999em) {
     a > span {
       display: none;
     }
+  }
+  @media (min-width: 45em) {
+    margin-block: 2rem;
   }
 `;
 
@@ -150,9 +153,9 @@ export const NumberIndicators = styled.div`
   & > *:active {
     border-color: hsl(${colorWhite} / 0.5);
   }
-  & > [aria-selected="true"] {
+  /* & > [aria-selected="true"] {
     background-color: hsl(${colorWhite});
     color: hsl(${colorDark});
     border-color: hsl(${colorWhite} / 1);
-  }
+  } */
 `;

@@ -5,10 +5,15 @@ import { flex, srOnly, textWhite } from "../styles/utility";
 
 import hamburgerIcon from "../../assets/shared/icon-hamburger.svg";
 import closeIcon from "../../assets/shared/icon-close.svg";
+import { colorWhite } from "../styles/variables";
 
 export const HeaderNav = styled.nav`
   .show-menu {
     transform: translateX(0);
+  }
+  .active {
+    border-bottom: 0.2rem solid hsl(${colorWhite} / 1);
+    padding: 0 0 2rem;
   }
   ul {
     ${flex}
@@ -21,16 +26,33 @@ export const HeaderNav = styled.nav`
     ${textWhite}
     ${letterSpacing2}
   }
+  @media (max-width: 35rem) {
+    .active {
+      border: 0;
+    }
+  }
 `;
 
 export const PrimaryHeader = styled.header`
   ${flex}
   justify-content: space-between;
   align-items: center;
+  order: 2;
   button > span {
     ${srOnly}
   }
-
+  @media (min-width: 45em) {
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      height: 1px;
+      width: 100%;
+      background: hsl(${colorWhite} / 0.25);
+      order: 1;
+      margin-right: -3rem;
+    }
+  }
 `;
 
 export const MobileNavToggle = styled.button.attrs(() => ({

@@ -49,7 +49,7 @@ body {
   background-size: cover;
   background-position: bottom center;
 
-  ${bgImage}
+  /* ${bgImage} */
 }
 img,
 picture {
@@ -72,5 +72,22 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+// React-router animations
+.fade-enter,
+.fade-exit {
+  transition: .5s;
+}
+.fade-enter,
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(100%)
+}
+.fade-enter-active {
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0)
+
 }
 `;
