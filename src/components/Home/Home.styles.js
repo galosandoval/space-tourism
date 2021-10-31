@@ -8,7 +8,8 @@ import {
   letterSpacing1,
   uppercase
 } from "../styles/typography";
-import { bgWhite, block, GridContainer, textAccent, textDark, textWhite } from "../styles/utility";
+import { bgWhite, block, textAccent, textDark, textWhite } from "../styles/utility";
+import { GridContainer } from "../styles/layout";
 
 export const HomeDiv = styled(GridContainer)`
   height: 86vh;

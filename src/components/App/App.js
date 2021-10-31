@@ -1,11 +1,10 @@
 import { Header } from "../Header";
 import { Home } from "../Home";
 import { SkipToContent } from "./App.styles";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Technology } from "../Technology";
 import { Crew } from "../Crew";
 import { Destination } from "../Destination";
-import { CSSTransition } from "react-transition-group";
 
 function App() {
   const routes = [
@@ -19,18 +18,11 @@ function App() {
       <SkipToContent href="#main">Skip content</SkipToContent>
 
       <Header routes={routes} />
-
-      {routes.map(({ path, Component }) => (
-        <Route key={path} exact path={path}>
-          {({ match }) => (
-            <CSSTransition in={match != null} timeout={2000} classNames="fade" unmountOnExit>
-              <Component />
-            </CSSTransition>
-          )}
-        </Route>
-      ))}
-
-      {/* </CSSTransition> */}
+      <Switch>
+        {routes.map(({ path, Component }) => (
+          <Route key={path} exact path={path} component={Component} />
+        ))}
+      </Switch>
     </>
   );
 }

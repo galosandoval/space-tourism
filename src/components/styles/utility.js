@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 import { colorDark, colorLight, colorWhite } from "./variables";
 
 /**
@@ -23,31 +23,7 @@ export const container = css`
   margin-inline: auto;
   max-width: 80rem;
 `;
-export const GridContainer = styled.div`
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding-inline: 1rem;
 
-  & * {
-    max-width: 50ch;
-  }
-
-  @media (min-width: 45rem) {
-    & {
-      text-align: left;
-      column-gap: 2rem;
-      grid-template-columns: minmax(2em, 1fr) minmax(0, 30rem) minmax(0, 30rem) minmax(2em, 1fr);
-      /* grid-template-columns: 2em repeat(2, minmax(0, 40rem)) 2em; same as  ^^*/
-    }
-    & > *:first-child {
-      grid-column: 2;
-    }
-    & > *:last-child {
-      grid-column: 3;
-    }
-  }
-`;
 export const srOnly = css`
   position: absolute;
   width: 1px;
