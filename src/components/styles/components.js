@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { ffSerifStyle, fs600Style } from "./typography";
 import { flex, gap } from "./utility";
 import { colorDark, colorLight, colorWhite } from "./variables";

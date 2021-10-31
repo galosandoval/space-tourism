@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "styled-components/macro";
 import homeMobile from "../../assets/home/background-home-mobile.jpg";
 import homeTablet from "../../assets/home/background-home-tablet.jpg";
 import homeDesktop from "../../assets/home/background-home-desktop.jpg";

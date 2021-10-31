@@ -1,6 +1,6 @@
 import React from "react";
 import moonPhoto from "../../assets/destination/image-moon.png";
-import { DestinationContainer, DestinationDiv } from "./Destination.styles";
+import { DestinationContainer, DestinationInfo, TabContainer } from "./Destination.styles";
 
 export const Destination = () => {
   return (
@@ -9,13 +9,13 @@ export const Destination = () => {
         <span aria-hidden="true">01</span>Pick your destination
       </h1>
       <img src={moonPhoto} alt="the moon" />
-      <DestinationDiv>
+      <TabContainer>
         <button>Moon</button>
         <button>Mars</button>
         <button>Europa</button>
         <button>Titan</button>
-      </DestinationDiv>
-      <article>
+      </TabContainer>
+      <DestinationInfo>
         <h2>Moon</h2>
         <p>
           See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain
@@ -32,7 +32,7 @@ export const Destination = () => {
             <p>3 days</p>
           </div>
         </div>
-      </article>
+      </DestinationInfo>
     </DestinationContainer>
   );
 };

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components/macro";
 import { bgImage } from "./pages";
 import { ffSansNormalStyle, fs400Style } from "./typography";
 import { colorDark, colorWhite } from "./variables";

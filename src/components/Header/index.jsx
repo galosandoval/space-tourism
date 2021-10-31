@@ -1,4 +1,4 @@
-import React, {  useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { HeaderNav, MobileNavToggle, PrimaryHeader } from "./Header.styles";
 import logo from "../../assets/shared/logo.svg";
 import { Logo } from "../styles/components";
@@ -19,19 +19,12 @@ export const Header = ({ routes }) => {
   const [mobileMenu, setMobileMenu] = useState(initialMobileMenuState);
 
   const location = useLocation();
-  console.log(location);
 
   const handleClick = () => {
     mobileMenu.isOpen
       ? setMobileMenu((state) => ({ isOpen: !state.isOpen, class: "" }))
       : setMobileMenu((state) => ({ isOpen: !state.isOpen, class: "show-menu" }));
   };
-
-  // useEffect(() => {
-  //   if (location.pathname === "/destination") {
-  //     document.body.style.backgroundImage = "none";
-  //   }
-  // }, [location]);
 
   useLayoutEffect(() => {
     const width = window.innerWidth;
@@ -54,11 +47,6 @@ export const Header = ({ routes }) => {
         document.body.style.backgroundImage = `url(${desDesktop})`;
       }
     }
-    // || document.documentElement.clientWidth || document.body.clientWidth;
-    const height = window.innerHeight;
-    // || document.documentElement.clientHeight || document.body.clientHeight;
-
-    console.log(width, height);
   }, [location]);
 
   return (
@@ -70,7 +58,7 @@ export const Header = ({ routes }) => {
         <span aria-expanded={mobileMenu.isOpen}>Menu</span>
       </MobileNavToggle>
       <HeaderNav gap={"clamp(1.5rem, 5vw, 3.5rem)"}>
-        <ul id="primary-navigation" className={mobileMenu.class} >
+        <ul id="primary-navigation" className={mobileMenu.class}>
           {routes.map((route, index) => (
             <li key={route.path}>
               <NavLink to={route.path} exact activeClassName="active">

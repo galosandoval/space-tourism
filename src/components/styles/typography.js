@@ -1,9 +1,5 @@
-import { css } from "styled-components";
-import {
-  ffSansCond,
-  ffSansNormal,
-  ffSerif
-} from "./variables";
+import { css } from "styled-components/macro";
+import { colorWhite, ffSansCond, ffSansNormal, ffSerif } from "./variables";
 
 export const ffSerifStyle = css`
   font-family: ${ffSerif};
@@ -50,13 +46,13 @@ export const fs200Style = css`
   font-size: var(--fs-200);
 `;
 export const numberedTitle = css`
-  font-family: ${ffSansCond};
+  ${fs500Style}
+  ${ffSansCondStyle}
   text-transform: uppercase;
   letter-spacing: 4.72px;
-
   span {
     margin-right: 0.5em;
     font-weight: 700;
-    color: hsl(colorWhite/ 0.25);
+    color: hsl(${colorWhite} / 0.25);
   }
 `;
